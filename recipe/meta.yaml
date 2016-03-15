@@ -14,6 +14,7 @@ source:
 
 build:
     number: 0
+    skip: True  # [win and py3]
 
 requirements:
     build:
@@ -84,3 +85,4 @@ about:
 extra:
   recipe-maintainers:
     - ocefpaf
+    - kmuehlbauer
