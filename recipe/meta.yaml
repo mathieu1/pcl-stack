@@ -28,6 +28,10 @@ requirements:
         - libnetcdf
         - kealib
         - krb5
+        - libtiff
+        - libpng
+        - zlib  # [not win]
+        - jpeg  # [not win]
         - postgresql  # [linux]
         - openjpeg  # [not win]
         - curl  # [not win]
@@ -42,6 +46,10 @@ requirements:
         - libnetcdf
         - kealib
         - krb5
+        - libtiff
+        - libpng
+        - zlib  # [not win]
+        - jpeg  # [not win]
         - postgresql  # [linux]
         - openjpeg  # [not win]
         - curl  # [not win]

@@ -17,6 +17,10 @@ CPPFLAGS="-I$PREFIX/include" LDFLAGS="-L$PREFIX/lib" \
             --with-kea=$PREFIX/bin/kea-config \
             --with-static-proj4=$PREFIX \
             --with-openjpeg=$PREFIX \
+            --with-jpeg=$PREFIX \
+            --with-libtiff=$PREFIX \
+            --with-png=$PREFIX \
+            --with-libz=$PREFIX \
             --disable-rpath \
             --without-pam \
             --with-python \
@@ -24,15 +28,6 @@ CPPFLAGS="-I$PREFIX/include" LDFLAGS="-L$PREFIX/lib" \
 
 make
 make install
-
-if [ $(uname) == Darwin ]; then
-    # Copy TIFF and GeoTIFF Headers to build against internal libraries.
-    mkdir -p $PREFIX/include/gdal/frmts/gtiff/libgeotiff
-    cp frmts/gtiff/libgeotiff/*.h $PREFIX/include/gdal/frmts/gtiff/libgeotiff
-    cp frmts/gtiff/libgeotiff/*.inc $PREFIX/include/gdal/frmts/gtiff/libgeotiff
-    mkdir -p $PREFIX/include/gdal/frmts/gtiff/libtiff
-    cp frmts/gtiff/libtiff/*.h $PREFIX/include/gdal/frmts/gtiff/libtiff
-fi
 
 # Make sure GDAL_DATA and set and still present in the package.
 # https://github.com/conda/conda-recipes/pull/267
