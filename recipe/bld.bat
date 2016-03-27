@@ -21,13 +21,17 @@ set BLD_OPTS=%WIN64% ^
     XERCES_DIR=%LIBRARY_PREFIX% ^
     XERCES_INCLUDE="-I%LIBRARY_INC% -I%LIBRARY_INC%\xercesc" ^
     XERCES_LIB=%LIBRARY_LIB%\xerces-c_3.lib ^
-    HDF4_DIR=%LIBRARY_PREFIX% ^
-    HDF4_LIB="%LIBRARY_LIB%\hdf.lib %LIBRARY_LIB%\mfhdf.lib %LIBRARY_LIB%\xdr.lib" ^
     NETCDF_LIB=%LIBRARY_LIB%\netcdf.lib ^
     NETCDF_INC_DIR=%LIBRARY_INC% ^
     NETCDF_SETTING=yes ^
     KEA_CFLAGS="-I%LIBRARY_INC%" ^
-    KEA_LIB=%LIBRARY_LIB%\libkea.lib
+    KEA_LIB=%LIBRARY_LIB%\libkea.lib ^
+    TIFF_INC=%LIBRARY_INC% ^
+    TIFF_LIB=%LIBRARY_LIB%\libtiff_i.lib ^
+    TIFF_OPTS=-DBIGTIFF_SUPPORT ^
+    PNG_EXTERNAL_LIB=1 ^
+    PNGDIR=%LIBRARY_PREFIX% ^
+    PNG_LIB=%LIBRARY_LIB%\libpng.lib
 
 nmake /f makefile.vc %BLD_OPTS%
 if errorlevel 1 exit 1
