@@ -20,7 +20,7 @@ requirements:
         - python
         - setuptools
         - numpy x.x
-        - hdf4
+        - hdf4  # [not win]
         - hdf5
         - geos
         - proj.4
@@ -38,7 +38,7 @@ requirements:
     run:
         - python
         - numpy x.x
-        - hdf4
+        - hdf4  # [not win]
         - hdf5
         - geos
         - proj.4
@@ -93,3 +93,4 @@ extra:
   recipe-maintainers:
     - ocefpaf
     - kmuehlbauer
+    - gillins
