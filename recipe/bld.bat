@@ -49,7 +49,10 @@ set BLD_OPTS=%WIN64% ^
     TIFF_OPTS=-DBIGTIFF_SUPPORT ^
     PNG_EXTERNAL_LIB=1 ^
     PNGDIR=%LIBRARY_PREFIX% ^
-    PNG_LIB=%LIBRARY_LIB%\libpng.lib
+    PNG_LIB=%LIBRARY_LIB%\libpng.lib ^
+    PROJ_FLAGS=-DPROJ_STATIC ^
+    PROJ_INCLUDE="-I%LIBRARY_INC%" ^
+    PROJ_LIBRARY=%LIBRARY_LIB%\proj.lib
 
 nmake /f makefile.vc %BLD_OPTS%
 if errorlevel 1 exit 1
