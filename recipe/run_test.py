@@ -44,9 +44,13 @@ assert driver is not None
 driver = ogr.GetDriverByName("GML")
 assert driver is not None
 
-# Commented out until openjpeg support for Windows available
-#driver = ogr.GetDriverByName("JP2OpenJPEG ")
-#assert driver is not None
+# only available when openjpeg successfully linked in 
+driver = gdal.GetDriverByName("JP2OpenJPEG")
+assert driver is not None
+
+# only available when curl successfully linked in 
+driver = gdal.GetDriverByName("WCS")
+assert driver is not None
 
 def has_geos():
     pnt1 = ogr.CreateGeometryFromWkt( 'POINT(10 20)' )

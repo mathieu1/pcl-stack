@@ -52,7 +52,13 @@ set BLD_OPTS=%WIN64% ^
     PNG_LIB=%LIBRARY_LIB%\libpng.lib ^
     PROJ_FLAGS=-DPROJ_STATIC ^
     PROJ_INCLUDE="-I%LIBRARY_INC%" ^
-    PROJ_LIBRARY=%LIBRARY_LIB%\proj.lib
+    PROJ_LIBRARY=%LIBRARY_LIB%\proj.lib ^
+    OPENJPEG_ENABLED=YES ^
+    OPENJPEG_CFLAGS="-I%LIBRARY_INC%" ^
+    OPENJPEG_LIB=%LIBRARY_LIB%\openjp2.lib ^
+    OPENJPEG_VERSION=20100 ^
+    CURL_INC="-I%LIBRARY_INC%" ^
+    CURL_LIB="%LIBRARY_LIB%\libcurl.lib wsock32.lib wldap32.lib winmm.lib"
 
 nmake /f makefile.vc %BLD_OPTS%
 if errorlevel 1 exit 1
