@@ -14,8 +14,7 @@ source:
         - install_scripts.patch
 
 build:
-    number: 1
-    skip: True  # [win and py35]
+    number: 2
     features:
         - vc9  # [win and py27]
         - vc10  # [win and py34]
@@ -27,7 +26,7 @@ requirements:
         - setuptools
         - numpy x.x
         - hdf4  # [not win]
-        - hdf5
+        - hdf5 1.8.15.1
         - geos
         - proj.4
         - xerces-c
@@ -39,13 +38,13 @@ requirements:
         - zlib  # [not win]
         - jpeg  # [not win]
         - postgresql  # [linux]
-        - openjpeg  # [not win]
-        - curl  # [not win]
+        - openjpeg
+        - curl
     run:
         - python
         - numpy x.x
         - hdf4  # [not win]
-        - hdf5
+        - hdf5 1.8.15.1
         - geos
         - proj.4
         - xerces-c
@@ -57,8 +56,8 @@ requirements:
         - zlib  # [not win]
         - jpeg  # [not win]
         - postgresql  # [linux]
-        - openjpeg  # [not win]
-        - curl  # [not win]
+        - openjpeg
+        - curl
 
 test:
     files:
@@ -80,15 +79,14 @@ test:
         - osgeo._ogr
         - osgeo._osr
     commands:
-        - ogrinfo sites.shp  # [not win]
-        - ogrinfo.exe sites.shp  # [win]
-        - gdal_grid --version  # [not win]
-        - gdal_rasterize --version  # [not win]
-        - gdal_translate --version  # [not win]
-        - gdaladdo --version  # [not win]
-        - gdalenhance --version  # [not win]
-        - gdalwarp --version  # [not win]
-        - gdalinfo --formats  # [not win]
+        - ogrinfo sites.shp
+        - gdal_grid --version
+        - gdal_rasterize --version
+        - gdal_translate --version
+        - gdaladdo --version
+        - gdalenhance --version
+        - gdalwarp --version
+        - gdalinfo --formats
 
 about:
     home: http://www.gdal.org/
