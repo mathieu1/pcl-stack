@@ -36,7 +36,7 @@ requirements:
         - libtiff
         - libpng
         - zlib  # [not win]
-        - jpeg  # [not win]
+        - jpeg 8*  # [not win]
         - postgresql  # [linux]
         - openjpeg
         - curl
@@ -54,7 +54,7 @@ requirements:
         - libtiff
         - libpng
         - zlib  # [not win]
-        - jpeg  # [not win]
+        - jpeg 8*  # [not win]
         - postgresql  # [linux]
         - openjpeg
         - curl
