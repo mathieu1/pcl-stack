@@ -5,7 +5,7 @@ Home: http://www.gdal.org/
 
 Package license: MIT
 
-Feedstock license: BSD
+Feedstock license: BSD 3-Clause
 
 Summary: The Geospatial Data Abstraction Library (GDAL)
 
