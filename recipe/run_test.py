@@ -20,9 +20,8 @@ os.environ['GDAL_DATA'] = gdalData
 driver = gdal.GetDriverByName("netCDF")
 assert driver is not None
 
-# Commented out until HDF4 support for Windows available
-#driver = gdal.GetDriverByName("HDF4")
-#assert driver is not None
+driver = gdal.GetDriverByName("HDF4")
+assert driver is not None
 
 driver = gdal.GetDriverByName("HDF5")
 assert driver is not None

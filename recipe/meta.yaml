@@ -25,7 +25,7 @@ requirements:
         - python
         - setuptools
         - numpy x.x
-        - hdf4  # [not win]
+        - hdf4
         - hdf5 1.8.15.1
         - geos
         - proj.4
@@ -43,7 +43,7 @@ requirements:
     run:
         - python
         - numpy x.x
-        - hdf4  # [not win]
+        - hdf4
         - hdf5 1.8.15.1
         - geos
         - proj.4
