@@ -14,7 +14,7 @@ source:
         - install_scripts.patch
 
 build:
-    number: 3
+    number: 4
     features:
         - vc9  # [win and py27]
         - vc10  # [win and py34]
@@ -36,7 +36,7 @@ requirements:
         - libtiff
         - libpng
         - zlib  # [not win]
-        - jpeg 8*  # [not win]
+        - jpeg 9*
         - postgresql  # [linux]
         - openjpeg
         - curl
@@ -54,7 +54,7 @@ requirements:
         - libtiff
         - libpng
         - zlib  # [not win]
-        - jpeg 8*  # [not win]
+        - jpeg 9*
         - postgresql  # [linux]
         - openjpeg
         - curl
