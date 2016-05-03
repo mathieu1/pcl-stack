@@ -26,7 +26,14 @@ CPPFLAGS="-I$PREFIX/include" LDFLAGS="-L$PREFIX/lib" \
             --with-python \
             $PGFLAG
 
-make -s
+
+if [[ $(uname) == Darwin ]]; then
+    OPTS="-s"  # Silence log to avoid Travis-CI 4 MB limit,
+else
+    OPTS=""
+fi
+
+make $OPTS
 make install
 
 # Make sure GDAL_DATA and set and still present in the package.

@@ -11,6 +11,8 @@ source:
     patches:
         - clang.patch  # [osx]
         - prepend-dll.patch  # [win]
+        # fixes compilation problems with jpeg
+        # https://lists.osgeo.org/pipermail/gdal-dev/2016-January/043443.html
         - disable_jpeg12.patch  # [win]
         - install_scripts.patch
 
