@@ -11,6 +11,7 @@ source:
     patches:
         - clang.patch  # [osx]
         - prepend-dll.patch  # [win]
+        - disable_jpeg12.patch  # [win]
         - install_scripts.patch
 
 build:
