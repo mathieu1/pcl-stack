@@ -17,7 +17,7 @@ source:
         - install_scripts.patch
 
 build:
-    number: 0
+    number: 1
     features:
         - vc9  # [win and py27]
         - vc10  # [win and py34]
@@ -29,16 +29,16 @@ requirements:
         - setuptools
         - numpy x.x
         - hdf4
-        - hdf5 1.8.15.1
+        - hdf5 1.8.15*
         - geos
         - proj.4
         - xerces-c
-        - libnetcdf
+        - libnetcdf 4.3*
         - kealib
         - krb5
-        - libtiff
-        - libpng
-        - zlib  # [not win]
+        - libtiff 4.0.6
+        - libpng 1.6*
+        - zlib 1.2*  # [not win]
         - jpeg 9*
         - postgresql  # [linux]
         - openjpeg
@@ -47,16 +47,16 @@ requirements:
         - python
         - numpy x.x
         - hdf4
-        - hdf5 1.8.15.1
+        - hdf5 1.8.15*
         - geos
         - proj.4
         - xerces-c
-        - libnetcdf
+        - libnetcdf 4.3*
         - kealib
         - krb5
-        - libtiff
-        - libpng
-        - zlib  # [not win]
+        - libtiff 4.0.6
+        - libpng 1.6*
+        - zlib 1.2*  # [not win]
         - jpeg 9*
         - postgresql  # [linux]
         - openjpeg
