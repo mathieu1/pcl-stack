@@ -14,10 +14,11 @@ source:
         # fixes compilation problems with jpeg
         # https://lists.osgeo.org/pipermail/gdal-dev/2016-January/043443.html
         - disable_jpeg12.patch  # [win]
+        - windowshdf5.patch  # [win]
         - install_scripts.patch
 
 build:
-    number: 3
+    number: 4
     features:
         - vc9  # [win and py27]
         - vc10  # [win and py34]
@@ -29,11 +30,11 @@ requirements:
         - setuptools
         - numpy x.x
         - hdf4
-        - hdf5 1.8.15*
+        - hdf5 1.8.17*
         - geos
         - proj.4
         - xerces-c
-        - libnetcdf 4.3*
+        - libnetcdf 4.4*
         - kealib
         - krb5
         - libtiff 4.0.6
@@ -43,24 +44,29 @@ requirements:
         - postgresql  # [linux]
         - openjpeg
         - curl
+        - sqlite  # [not win]
+        - libspatialite  # [not win]
+
     run:
         - python
         - numpy x.x
         - hdf4
-        - hdf5 1.8.15*
+        - hdf5 1.8.17*
         - geos
         - proj.4
         - xerces-c
-        - libnetcdf 4.3*
+        - libnetcdf 4.4*
         - kealib
         - krb5
         - libtiff 4.0.6
         - libpng 1.6*
         - zlib 1.2*  # [not win]
         - jpeg 9*
-        - postgresql  # [linux]
+        - postgresql  # [not win]
         - openjpeg
         - curl
+        - sqlite  # [not win]
+        - libspatialite  # [not win]
 
 test:
     files:
