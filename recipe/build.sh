@@ -1,13 +1,18 @@
 #!/bin/bash
 
 if [ $(uname) == Darwin ]; then
-    PGFLAG=""
     export LDFLAGS="-headerpad_max_install_names"
+    OPTS="--enable-rpath"
 else
-    PGFLAG="--with-pg=$PREFIX/bin/pg_config"
+    OPTS="--disable-rpath"
 fi
 
-CPPFLAGS="-I$PREFIX/include" LDFLAGS="-L$PREFIX/lib" \
+export LDFLAGS="$LDFLAGS -L$PREFIX/lib"
+export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
+
+# `--without-pam` was removed.
+# See https://github.com/conda-forge/gdal-feedstock/pull/47 for the discussion.
+
 ./configure --prefix=$PREFIX \
             --with-hdf4=$PREFIX \
             --with-hdf5=$PREFIX \
@@ -16,22 +21,25 @@ CPPFLAGS="-I$PREFIX/include" LDFLAGS="-L$PREFIX/lib" \
             --with-geos=$PREFIX/bin/geos-config \
             --with-kea=$PREFIX/bin/kea-config \
             --with-static-proj4=$PREFIX \
-            --with-openjpeg=$PREFIX \
-            --with-jpeg=$PREFIX \
-            --with-libtiff=$PREFIX \
-            --with-png=$PREFIX \
-            --with-sqlite3=$PREFIX \
-            --with-spatialite=$PREFIX \
-            --with-curl \
             --with-libz=$PREFIX \
-            --disable-rpath \
-            --without-pam \
+            --with-png=$PREFIX \
+            --with-jpeg=$PREFIX \
+            --with-libjson-c=$PREFIX \
+            --with-expat=$PREFIX \
+            --with-freexl=$PREFIX \
+            --with-libtiff=$PREFIX \
+            --with-xml2=$PREFIX \
+            --with-openjpeg=$PREFIX \
+            --with-spatialite=$PREFIX \
+            --with-pg=$PREFIX/bin/pg_config \
+            --with-sqlite3=$PREFIX \
+            --with-curl \
             --with-python \
-            $PGFLAG
+            $OPTS
 
 
 if [[ $(uname) == Darwin ]]; then
-    OPTS="-s"  # Silence log to avoid Travis-CI 4 MB limit,
+    OPTS="-s"  # Silence log to avoid Travis-CI 4 MB limit.
 else
     OPTS=""
 fi
