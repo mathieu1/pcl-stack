@@ -43,7 +43,8 @@ export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
             --with-sqlite3=$PREFIX \
             --with-curl \
             --with-python \
-            $OPTS
+            --without-libtool \
+            $OPTS $LIBT
 
 
 if [[ $(uname) == Darwin ]]; then
