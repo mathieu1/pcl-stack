@@ -44,7 +44,7 @@ export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
             --with-curl \
             --with-python \
             --without-libtool \
-            $OPTS $LIBT
+            $OPTS
 
 
 if [[ $(uname) == Darwin ]]; then
