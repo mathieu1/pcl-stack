@@ -18,7 +18,7 @@ source:
         - install_scripts.patch
 
 build:
-    number: 7
+    number: 6
     features:
         - vc9  # [win and py27]
         - vc10  # [win and py34]
