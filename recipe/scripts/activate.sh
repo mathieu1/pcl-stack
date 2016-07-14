@@ -11,7 +11,7 @@ export GDAL_DATA=$CONDA_PREFIX/share/gdal
 if [[ -n "$GDAL_DRIVER_PATH" ]]; then
     export _CONDA_SET_GDAL_DRIVER_PATH=$GDAL_DRIVER_PATH
 fi
-export GDAL_DRIVER_PATH=$CONDA_PREFIX/lib/gdal
+export GDAL_DRIVER_PATH=$CONDA_PREFIX/lib/gdalplugins
 
 # Support plugins if the plugin directory exists
 # i.e if it has been manually created by the user
