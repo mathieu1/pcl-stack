@@ -1,24 +1,24 @@
-{% set version = "2.1.0" %}
+{% set version = "2.1.1" %}
 
 package:
     name: gdal
     version: {{ version }}
 
 source:
-    fn: gdal-{{ version }}.tar.gz
-    url: http://download.osgeo.org/gdal/{{ version }}/gdal-{{ version }}.tar.gz
-    md5: 0fc165cd947c54b132204233dfb243f1
+    fn: gdal-{{ version }}.tar.xz
+    url: http://download.osgeo.org/gdal/{{ version }}/gdal-{{ version }}.tar.xz
+    sha256: 87ce516ce757ad1edf1e21f007fbe232ed2e932af422e9893f40199711c41f92
     patches:
         - clang.patch  # [osx]
         - prepend-dll.patch  # [win]
-        # fixes compilation problems with jpeg
+        # Fixes compilation problems with JPEG.
         # https://lists.osgeo.org/pipermail/gdal-dev/2016-January/043443.html
         - disable_jpeg12.patch  # [win]
         - windowshdf5.patch  # [win]
         - install_scripts.patch
 
 build:
-    number: 7
+    number: 0
     features:
         - vc9  # [win and py27]
         - vc10  # [win and py34]
