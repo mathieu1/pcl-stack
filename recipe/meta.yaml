@@ -5,9 +5,9 @@ package:
     version: {{ version }}
 
 source:
-    fn: gdal-{{ version }}.tar.xz
-    url: http://download.osgeo.org/gdal/{{ version }}/gdal-{{ version }}.tar.xz
-    sha256: 87ce516ce757ad1edf1e21f007fbe232ed2e932af422e9893f40199711c41f92
+    fn: gdal-{{ version }}.tar.gz
+    url: http://download.osgeo.org/gdal/{{ version }}/gdal-{{ version }}.tar.gz
+    sha256: 55fc6ffbe76e9d2e7e6cf637010e5d4bba6a966d065f40194ff798544198236b
     patches:
         - clang.patch  # [osx]
         - prepend-dll.patch  # [win]
