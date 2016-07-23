@@ -18,7 +18,7 @@ source:
         - install_scripts.patch
 
 build:
-    number: 0
+    number: 1
     features:
         - vc9  # [win and py27]
         - vc10  # [win and py34]
@@ -36,6 +36,7 @@ requirements:
         - proj.4
         - xerces-c
         - libnetcdf 4.4.*
+        - libdap4 3.18.*  # [not win]
         - kealib
         - libtiff 4.0.*
         - libpng >=1.6.21,<1.7
@@ -60,6 +61,7 @@ requirements:
         - proj.4
         - xerces-c
         - libnetcdf 4.4.*
+        - libdap4 3.18.*  # [not win]
         - kealib
         - libtiff 4.0.*
         - libpng >=1.6.21,<1.7
