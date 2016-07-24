@@ -53,6 +53,7 @@ export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
 
 ./configure CC=$COMP_CC \
             CXX=$COMP_CXX \
+            --with-python \
             --prefix=$PREFIX \
             --with-hdf4=$PREFIX \
             --with-hdf5=$PREFIX \
@@ -74,7 +75,7 @@ export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
             --with-pg=$PREFIX/bin/pg_config \
             --with-sqlite3=$PREFIX \
             --with-curl \
-            --with-python \
+            --with-dods-root=$PREFIX \
             $OPTS
 
 # CircleCI offers two cores.
