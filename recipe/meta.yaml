@@ -79,12 +79,12 @@ requirements:
 
 test:
     files:
-        - os1_hw.py
-        - sites.dbf
-        - sites.sbn
-        - sites.sbx
-        - sites.shp
-        - sites.shx
+        - extra_tests.py
+        - test_data/sites.dbf
+        - test_data/sites.sbn
+        - test_data/sites.sbx
+        - test_data/sites.shp
+        - test_data/sites.shx
     imports:
         - osr
         - gdal
@@ -97,7 +97,6 @@ test:
         - osgeo._ogr
         - osgeo._osr
     commands:
-        - ogrinfo sites.shp
         - gdal_grid --version
         - gdal_rasterize --version
         - gdal_translate --version
@@ -105,12 +104,12 @@ test:
         - gdalenhance --version
         - gdalwarp --version
         - gdalinfo --formats
-        - conda inspect linkages -n _test gdal  # [unix]
+        - conda inspect linkages -n _test gdal  # [not win]
 
 about:
     home: http://www.gdal.org/
     license: MIT
-    summary: The Geospatial Data Abstraction Library (GDAL)
+    summary: 'The Geospatial Data Abstraction Library (GDAL).'
 
 extra:
   recipe-maintainers:
