@@ -1,18 +1,16 @@
+import os
+
 from osgeo import gdal
 from osgeo import ogr
 from osgeo import osr
 
-# this module does some tests
-import os1_hw
-
 # Set GDAL_DATA. This is done normally done by the activate script,
 # but this doesn't happen in the testing environment
-import os
 if 'LIBRARY_PREFIX' in os.environ:
-    # Windows
+    # Windows.
     gdalData = os.path.join(os.environ['LIBRARY_PREFIX'], 'share', 'gdal')
 else:
-    # Linux/OSX
+    # Linux/OS X.
     gdalData = os.path.join(os.environ['PREFIX'], 'share', 'gdal')
 
 os.environ['GDAL_DATA'] = gdalData
@@ -35,31 +33,31 @@ assert driver is not None
 driver = gdal.GetDriverByName("JPEG")
 assert driver is not None
 
-# only available when libkea successfully linked in
+# only available when libkea successfully linked in.
 driver = gdal.GetDriverByName("KEA")
 assert driver is not None
 
-# only available when xerces-c++ successfully linked in
+# only available when xerces-c++ successfully linked in.
 driver = ogr.GetDriverByName("GML")
 assert driver is not None
 
-# only available when openjpeg successfully linked in 
+# only available when openjpeg successfully linked in.
 driver = gdal.GetDriverByName("JP2OpenJPEG")
 assert driver is not None
 
-# only available when curl successfully linked in 
+# only available when curl successfully linked in.
 driver = gdal.GetDriverByName("WCS")
 assert driver is not None
 
-# only available when freexl successfully linked in
+# only available when freexl successfully linked in.
 driver = ogr.GetDriverByName("XLS")
 assert driver is not None
 
-# only available when expat successfully linked in
+# only available when expat successfully linked in.
 driver = ogr.GetDriverByName("KML")
 assert driver is not None
 
-# only available when SQLite successfully linked in
+# only available when SQLite successfully linked in.
 driver = ogr.GetDriverByName("SQLite")
 assert driver is not None
 
@@ -77,14 +75,14 @@ assert has_geos(), 'GEOS not available within GDAL'
 
 def has_proj():
     sr1 = osr.SpatialReference()
-    sr1.ImportFromEPSG(4326) # lat long
+    sr1.ImportFromEPSG(4326) # lat, lon.
     sr2 = osr.SpatialReference()
-    sr2.ImportFromEPSG(28355) # GDA94 / MGA zone 55
+    sr2.ImportFromEPSG(28355) # GDA94/MGA zone 55.
     osrex = osr.GetUseExceptions()
     osr.UseExceptions()
     hasproj = True
-    # use exceptions to determine if we have proj and epsg files
-    # otherwise we can't reliably determine if it has failed
+    # Use exceptions to determine if we have proj and epsg files
+    # otherwise we can't reliably determine if it has failed.
     try:
         trans = osr.CoordinateTransformation(sr1, sr2)
     except RuntimeError:
@@ -92,3 +90,6 @@ def has_proj():
     return hasproj
 
 assert has_proj(), 'PROJ not available within GDAL'
+
+# This module does some additional tests.
+import extra_tests
