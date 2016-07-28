@@ -105,7 +105,7 @@ test:
         - gdalenhance --version
         - gdalwarp --version
         - gdalinfo --formats
-        - conda inspect linkages -n _test gdal  # [linux]
+        - conda inspect linkages -n _test gdal  # [unix]
 
 about:
     home: http://www.gdal.org/
