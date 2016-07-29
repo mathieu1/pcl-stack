@@ -22,6 +22,7 @@ pushd $RECIPE_DIR/test_data/
 gdalinfo cropped.cub
 
 # From @akorosov. See https://github.com/conda-forge/gdal-feedstock/issues/83
+export CPL_ZIP_ENCODING=UTF-8
 gdalinfo /vsizip/stere.zip/stere.tif
 
 # Check shapefile read.
