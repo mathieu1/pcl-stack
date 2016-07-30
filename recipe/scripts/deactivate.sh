@@ -13,3 +13,6 @@ if [[ -n "$_CONDA_SET_GDAL_DRIVER_PATH" ]]; then
     unset _CONDA_SET_GDAL_DRIVER_PATH
 fi
 
+
+#   vsizip does not work without this.
+unset CPL_ZIP_ENCODING

@@ -19,3 +19,5 @@ if [[ ! -d "$GDAL_DRIVER_PATH" ]]; then
     unset GDAL_DRIVER_PATH
 fi
 
+# vsizip does not work without this.
+export CPL_ZIP_ENCODING=UTF-8
