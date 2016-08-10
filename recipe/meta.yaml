@@ -18,7 +18,7 @@ source:
         - install_scripts.patch
 
 build:
-    number: 1
+    number: 2
     features:
         - vc9  # [win and py27]
         - vc10  # [win and py34]
@@ -42,7 +42,7 @@ requirements:
         - libpng >=1.6.21,<1.7
         - zlib 1.2.*  # [not win]
         - jpeg 9*
-        - postgresql  # [not win]
+        - postgresql
         - giflib  # [not win]
         - json-c  # [not win]
         - freexl
@@ -67,7 +67,7 @@ requirements:
         - libpng >=1.6.21,<1.7
         - zlib 1.2.*  # [not win]
         - jpeg 9*
-        - postgresql  # [not win]
+        - postgresql
         - giflib  # [not win]
         - json-c  # [not win]
         - freexl
