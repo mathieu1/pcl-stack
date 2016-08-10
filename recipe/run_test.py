@@ -61,6 +61,10 @@ assert driver is not None
 driver = ogr.GetDriverByName("SQLite")
 assert driver is not None
 
+# only available when PostgreSQL successfully linked in.
+driver = ogr.GetDriverByName("PostgreSQL")
+assert driver is not None
+
 def has_geos():
     pnt1 = ogr.CreateGeometryFromWkt( 'POINT(10 20)' )
     pnt2 = ogr.CreateGeometryFromWkt( 'POINT(30 20)' )
