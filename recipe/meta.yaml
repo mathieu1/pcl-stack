@@ -19,10 +19,6 @@ source:
 
 build:
     number: 2
-    features:
-        - vc9  # [win and py27]
-        - vc10  # [win and py34]
-        - vc14  # [win and py35]
 
 requirements:
     build:
@@ -51,6 +47,9 @@ requirements:
         - expat
         - sqlite 3.13.*
         - libspatialite
+        - vc   9  # [win and py27]
+        - vc  10  # [win and py34]
+        - vc  14  # [win and py35]
 
     run:
         - python
@@ -67,7 +66,7 @@ requirements:
         - libpng >=1.6.21,<1.7
         - zlib 1.2.*  # [not win]
         - jpeg 9*
-        - postgresql
+        - libpq
         - giflib  # [not win]
         - json-c  # [not win]
         - freexl
@@ -76,6 +75,9 @@ requirements:
         - expat
         - sqlite 3.13.*
         - libspatialite
+        - vc   9  # [win and py27]
+        - vc  10  # [win and py34]
+        - vc  14  # [win and py35]
 
 test:
     files:
