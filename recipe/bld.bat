@@ -72,7 +72,9 @@ set BLD_OPTS=%WIN64% ^
     EXPAT_LIB=%LIBRARY_LIB%\expat.lib ^
     SQLITE_INC="-I%LIBRARY_INC% -DHAVE_SPATIALITE" ^
     SQLITE_LIB="%LIBRARY_LIB%\sqlite3.lib %LIBRARY_LIB%\spatialite_i.lib" ^
-    SPATIALITE_412_OR_LATER=yes
+    SPATIALITE_412_OR_LATER=yes ^
+    PG_INC_DIR=%LIBRARY_INC% ^
+    PG_LIB=%LIBRARY_LIB%\libpq.lib
 
 nmake /f makefile.vc %BLD_OPTS%
 if errorlevel 1 exit 1
