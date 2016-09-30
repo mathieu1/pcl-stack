@@ -18,7 +18,7 @@ source:
         - install_scripts.patch
 
 build:
-    number: 2
+    number: 3
 
 requirements:
     build:
@@ -39,7 +39,7 @@ requirements:
         - zlib 1.2.*  # [not win]
         - jpeg 9*
         - postgresql
-        - giflib  # [not win]
+        - giflib 5.1.*  # [not win]
         - json-c  # [not win]
         - freexl
         - openjpeg
@@ -67,7 +67,7 @@ requirements:
         - zlib 1.2.*  # [not win]
         - jpeg 9*
         - libpq
-        - giflib  # [not win]
+        - giflib 5.1.*  # [not win]
         - json-c  # [not win]
         - freexl
         - openjpeg
