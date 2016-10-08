@@ -18,7 +18,7 @@ source:
         - install_scripts.patch
 
 build:
-    number: 3
+    number: 4
 
 requirements:
     build:
@@ -29,7 +29,7 @@ requirements:
         - hdf4
         - hdf5 1.8.17|1.8.17.*
         - geos 3.4.*
-        - proj.4
+        - proj.4 4.9.3
         - xerces-c
         - libnetcdf 4.4.*
         - libdap4 3.18.*  # [not win]
@@ -57,7 +57,7 @@ requirements:
         - hdf4
         - hdf5 1.8.17|1.8.17.*
         - geos 3.4.*
-        - proj.4
+        - proj.4 4.9.3
         - xerces-c
         - libnetcdf 4.4.*
         - libdap4 3.18.*  # [not win]
@@ -107,7 +107,7 @@ test:
         - gdalwarp --version
         - gdalinfo --formats
         # Commented out below since it seems to be broken for now
-        # - conda inspect linkages -n _test gdal  # [not win]
+        # - conda inspect linkages -p $PREFIX gdal  # [not win]
 
 about:
     home: http://www.gdal.org/
