@@ -18,7 +18,7 @@ source:
         - install_scripts.patch
 
 build:
-    number: 4
+    number: 5
 
 requirements:
     build:
@@ -35,7 +35,7 @@ requirements:
         - libdap4 3.18.*  # [not win]
         - kealib
         - libtiff 4.0.*
-        - libpng >=1.6.21,<1.7
+        - libpng >=1.6.23,<1.7
         - zlib 1.2.*  # [not win]
         - jpeg 9*
         - postgresql
@@ -63,7 +63,7 @@ requirements:
         - libdap4 3.18.*  # [not win]
         - kealib
         - libtiff 4.0.*
-        - libpng >=1.6.21,<1.7
+        - libpng >=1.6.23,<1.7
         - zlib 1.2.*  # [not win]
         - jpeg 9*
         - libpq
