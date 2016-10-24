@@ -33,6 +33,9 @@ assert driver is not None
 driver = gdal.GetDriverByName("JPEG")
 assert driver is not None
 
+driver = gdal.GetDriverByName("GPKG")
+assert driver is not None
+
 # only available when libkea successfully linked in.
 driver = gdal.GetDriverByName("KEA")
 assert driver is not None
