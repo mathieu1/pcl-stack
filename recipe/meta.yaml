@@ -1,118 +1,120 @@
 {% set version = "2.1.1" %}
 
 package:
-    name: gdal
-    version: {{ version }}
+  name: gdal
+  version: {{ version }}
 
 source:
-    fn: gdal-{{ version }}.tar.gz
-    url: http://download.osgeo.org/gdal/{{ version }}/gdal-{{ version }}.tar.gz
-    sha256: 55fc6ffbe76e9d2e7e6cf637010e5d4bba6a966d065f40194ff798544198236b
-    patches:
-        - clang.patch  # [osx]
-        - prepend-dll.patch  # [win]
-        # Fixes compilation problems with JPEG.
-        # https://lists.osgeo.org/pipermail/gdal-dev/2016-January/043443.html
-        - disable_jpeg12.patch  # [win]
-        - windowshdf5.patch  # [win]
-        - install_scripts.patch
+  fn: gdal-{{ version }}.tar.gz
+  url: http://download.osgeo.org/gdal/{{ version }}/gdal-{{ version }}.tar.gz
+  sha256: 55fc6ffbe76e9d2e7e6cf637010e5d4bba6a966d065f40194ff798544198236b
+  patches:
+    - clang.patch  # [osx]
+    - prepend-dll.patch  # [win]
+    # Fixes compilation problems with JPEG.
+    # https://lists.osgeo.org/pipermail/gdal-dev/2016-January/043443.html
+    - disable_jpeg12.patch  # [win]
+    - windowshdf5.patch  # [win]
+    - install_scripts.patch
 
 build:
-    number: 5
+  number: 6
 
 requirements:
-    build:
-        - python
-        - setuptools
-        - cmake  # [win]
-        - numpy x.x
-        - hdf4
-        - hdf5 1.8.17|1.8.17.*
-        - geos 3.4.*
-        - proj.4 4.9.3
-        - xerces-c
-        - libnetcdf 4.4.*
-        - libdap4 3.18.*  # [not win]
-        - kealib
-        - libtiff 4.0.*
-        - libpng >=1.6.23,<1.7
-        - zlib 1.2.*  # [not win]
-        - jpeg 9*
-        - postgresql
-        - giflib 5.1.*  # [not win]
-        - json-c  # [not win]
-        - freexl
-        - openjpeg
-        - curl
-        - expat
-        - sqlite 3.13.*
-        - libspatialite
-        - vc   9  # [win and py27]
-        - vc  10  # [win and py34]
-        - vc  14  # [win and py35]
+  build:
+    - python
+    - setuptools
+    - cmake  # [win]
+    - numpy x.x
+    - hdf4
+    - hdf5 1.8.17|1.8.17.*
+    - geos 3.4.*
+    - proj.4 4.9.3
+    - xerces-c
+    - libnetcdf 4.4.*
+    - libdap4 3.18.*  # [not win]
+    - kealib
+    - libtiff 4.0.*
+    - libpng >=1.6.23,<1.7
+    - zlib 1.2.*  # [not win]
+    - jpeg 9*
+    - postgresql
+    - giflib 5.1.*  # [not win]
+    - json-c  # [not win]
+    - freexl
+    - openjpeg
+    - curl
+    - expat
+    - sqlite 3.13.*
+    - libspatialite
+    - vc   9  # [win and py27]
+    - vc  10  # [win and py34]
+    - vc  14  # [win and py35]
 
-    run:
-        - python
-        - numpy x.x
-        - hdf4
-        - hdf5 1.8.17|1.8.17.*
-        - geos 3.4.*
-        - proj.4 4.9.3
-        - xerces-c
-        - libnetcdf 4.4.*
-        - libdap4 3.18.*  # [not win]
-        - kealib
-        - libtiff 4.0.*
-        - libpng >=1.6.23,<1.7
-        - zlib 1.2.*  # [not win]
-        - jpeg 9*
-        - libpq
-        - giflib 5.1.*  # [not win]
-        - json-c  # [not win]
-        - freexl
-        - openjpeg
-        - curl
-        - expat
-        - sqlite 3.13.*
-        - libspatialite
-        - vc   9  # [win and py27]
-        - vc  10  # [win and py34]
-        - vc  14  # [win and py35]
+  run:
+    - python
+    - numpy x.x
+    - hdf4
+    - hdf5 1.8.17|1.8.17.*
+    - geos 3.4.*
+    - proj.4 4.9.3
+    - xerces-c
+    - libnetcdf 4.4.*
+    - libdap4 3.18.*  # [not win]
+    - kealib
+    - libtiff 4.0.*
+    - libpng >=1.6.23,<1.7
+    - zlib 1.2.*  # [not win]
+    - jpeg 9*
+    - libpq
+    - giflib 5.1.*  # [not win]
+    - json-c  # [not win]
+    - freexl
+    - openjpeg
+    - curl
+    - expat
+    - sqlite 3.13.*
+    - libspatialite
+    - vc   9  # [win and py27]
+    - vc  10  # [win and py34]
+    - vc  14  # [win and py35]
 
 test:
-    files:
-        - extra_tests.py
-        - test_data/sites.dbf
-        - test_data/sites.sbn
-        - test_data/sites.sbx
-        - test_data/sites.shp
-        - test_data/sites.shx
-    imports:
-        - osr
-        - gdal
-        - gdalconst
-        - osgeo
-        - osgeo.ogr
-        - osgeo.gdal
-        - osgeo._gdal
-        - osgeo._gdalconst
-        - osgeo._ogr
-        - osgeo._osr
-    commands:
-        - gdal_grid --version
-        - gdal_rasterize --version
-        - gdal_translate --version
-        - gdaladdo --version
-        - gdalenhance --version
-        - gdalwarp --version
-        - gdalinfo --formats
-        # Commented out below since it seems to be broken for now
-        # - conda inspect linkages -p $PREFIX gdal  # [not win]
+  files:
+    - extra_tests.py
+    - test_data/sites.dbf
+    - test_data/sites.sbn
+    - test_data/sites.sbx
+    - test_data/sites.shp
+    - test_data/sites.shx
+  imports:
+    - osr
+    - gdal
+    - gdalconst
+    - osgeo
+    - osgeo.ogr
+    - osgeo.gdal
+    - osgeo._gdal
+    - osgeo._gdalconst
+    - osgeo._ogr
+    - osgeo._osr
+  commands:
+    - gdal_grid --version
+    - gdal_rasterize --version
+    - gdal_translate --version
+    - gdaladdo --version
+    - gdalenhance --version
+    - gdalwarp --version
+    - gdalinfo --formats
+    - gdalinfo http://thredds.nersc.no/thredds/dodsC/greenpath/Model/topaz  # [not win]
+    # Commented out below since it seems to be broken for now
+    #- conda inspect linkages -p $PREFIX gdal  # [not win]
+    #- conda inspect objects -p $PREFIX gdal  # [osx]
 
 about:
-    home: http://www.gdal.org/
-    license: MIT
-    summary: 'The Geospatial Data Abstraction Library (GDAL).'
+  home: http://www.gdal.org/
+  license: MIT
+  summary: 'The Geospatial Data Abstraction Library (GDAL).'
 
 extra:
   recipe-maintainers:
