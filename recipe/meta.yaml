@@ -7,7 +7,7 @@ package:
 source:
   fn: gdal-{{ version }}.tar.gz
   url: http://download.osgeo.org/gdal/{{ version }}/gdal-{{ version }}.tar.gz
-  sha256: 69761c38acac8c6d3ea71304341f6982b5d66125a1a80d9088b6bfd2019125c9 
+  sha256: 69761c38acac8c6d3ea71304341f6982b5d66125a1a80d9088b6bfd2019125c9
   patches:
     - clang.patch  # [osx]
     - prepend-dll.patch  # [win]
@@ -18,7 +18,7 @@ source:
     - install_scripts.patch
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -29,7 +29,7 @@ requirements:
     - hdf4
     - hdf5 1.8.17|1.8.17.*
     - geos 3.4.*
-    - proj.4 4.9.3
+    - proj4 4.9.3
     - xerces-c
     - libnetcdf 4.4.*
     - libdap4 3.18.*  # [not win]
@@ -57,7 +57,7 @@ requirements:
     - hdf4
     - hdf5 1.8.17|1.8.17.*
     - geos 3.4.*
-    - proj.4 4.9.3
+    - proj4 4.9.3
     - xerces-c
     - libnetcdf 4.4.*
     - libdap4 3.18.*  # [not win]
@@ -107,7 +107,6 @@ test:
     - gdalwarp --version
     - gdalinfo --formats
     - gdalinfo http://thredds.nersc.no/thredds/dodsC/greenpath/Model/topaz  # [not win]
-    # Commented out below since it seems to be broken for now
     #- conda inspect linkages -p $PREFIX gdal  # [not win]
     #- conda inspect objects -p $PREFIX gdal  # [osx]
 
