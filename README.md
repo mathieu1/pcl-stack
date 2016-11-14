@@ -33,7 +33,6 @@ conda search gdal --channel conda-forge
 ```
 
 
-
 About conda-forge
 =================
 
