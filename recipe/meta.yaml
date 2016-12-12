@@ -23,6 +23,7 @@ build:
 requirements:
   build:
     - python
+    - swig
     - setuptools
     - cmake  # [win]
     - numpy x.x
@@ -75,6 +76,7 @@ requirements:
     - expat
     - sqlite 3.13.*
     - libspatialite
+    - pcre
     - vc   9  # [win and py27]
     - vc  10  # [win and py34]
     - vc  14  # [win and py35]
