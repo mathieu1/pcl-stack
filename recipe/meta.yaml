@@ -24,7 +24,7 @@ requirements:
   build:
     - python
     - swig
-    - sed # [osx]
+    - sed  # [osx]
     - setuptools
     - cmake  # [win]
     - numpy x.x
