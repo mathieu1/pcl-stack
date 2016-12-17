@@ -98,5 +98,19 @@ def has_proj():
 
 assert has_proj(), 'PROJ not available within GDAL'
 
+# Test https://github.com/swig/swig/issues/567
+def make_geom():
+    geom = ogr.Geometry(ogr.wkbPoint)
+    geom.AddPoint_2D(0, 0)
+    return geom
+
+def gen_list(N):
+    for i in range(N):
+        geom = make_geom()
+        yield i
+
+N = 10
+assert list(gen_list(N)) == list(range(N))
+
 # This module does some additional tests.
 import extra_tests
