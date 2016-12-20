@@ -89,5 +89,5 @@ conda info
     upload_or_check_non_existence /recipe_root conda-forge --channel=main || exit 1
 
 # Inspect the prefix lengths of the built packages.
-conda inspect prefix-lengths /feedstock_root/build_artefacts/linux-64/*.tar.bz2
+# conda inspect prefix-lengths /feedstock_root/build_artefacts/linux-64/*.tar.bz2
 EOF
