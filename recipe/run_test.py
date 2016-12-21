@@ -4,6 +4,10 @@ from osgeo import gdal
 from osgeo import ogr
 from osgeo import osr
 
+# Avoid the regressing from https://github.com/conda-forge/gdal-feedstock/pull/129
+# See https://github.com/conda-forge/gdal-feedstock/issues/131
+from osgeo.gdal_array import *
+
 # Set GDAL_DATA. This is done normally done by the activate script,
 # but this doesn't happen in the testing environment
 if 'LIBRARY_PREFIX' in os.environ:

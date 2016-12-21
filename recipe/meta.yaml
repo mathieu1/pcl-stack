@@ -18,12 +18,14 @@ source:
     - install_scripts.patch
 
 build:
-  number: 3
+  number: 4
 
 requirements:
   build:
     - python
-    - swig
+    # Must be 3.0.8
+    # see https://github.com/conda-forge/gdal-feedstock/issues/131
+    - swig 3.0.8
     - sed  # [osx]
     - setuptools
     - cmake  # [win]
