@@ -112,8 +112,8 @@ test:
     - gdalwarp --version
     - gdalinfo --formats
     - gdalinfo http://thredds.nersc.no/thredds/dodsC/greenpath/Model/topaz  # [not win]
-    #- conda inspect linkages -p $PREFIX gdal  # [not win]
-    #- conda inspect objects -p $PREFIX gdal  # [osx]
+    - conda inspect linkages -p $PREFIX gdal  # [not win]
+    - conda inspect objects -p $PREFIX gdal  # [osx]
 
 about:
   home: http://www.gdal.org/
