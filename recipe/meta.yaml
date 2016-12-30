@@ -18,7 +18,13 @@ source:
     - install_scripts.patch
 
 build:
-  number: 4
+  number: 5
+  # Just a temporary skip to ensure CircleCI completion with the most common Python versions.
+  skip: True  # [py34 and linux]
+  features:
+    - vc9  # [win and py27]
+    - vc10  # [win and py34]
+    - vc14  # [win and py>=35]
 
 requirements:
   build:
@@ -53,7 +59,7 @@ requirements:
     - libspatialite
     - vc   9  # [win and py27]
     - vc  10  # [win and py34]
-    - vc  14  # [win and py35]
+    - vc  14  # [win and py>=35]
 
   run:
     - python
@@ -82,7 +88,7 @@ requirements:
     - pcre
     - vc   9  # [win and py27]
     - vc  10  # [win and py34]
-    - vc  14  # [win and py35]
+    - vc  14  # [win and py>=35]
 
 test:
   files:
@@ -112,8 +118,8 @@ test:
     - gdalwarp --version
     - gdalinfo --formats
     - gdalinfo http://thredds.nersc.no/thredds/dodsC/greenpath/Model/topaz  # [not win]
-    #- conda inspect linkages -p $PREFIX gdal  # [not win]
-    #- conda inspect objects -p $PREFIX gdal  # [osx]
+    - conda inspect linkages -p $PREFIX gdal  # [not win]
+    - conda inspect objects -p $PREFIX gdal  # [osx]
 
 about:
   home: http://www.gdal.org/
