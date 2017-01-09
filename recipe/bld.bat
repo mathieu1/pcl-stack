@@ -111,3 +111,9 @@ if errorlevel 1 exit 1
 
 copy %RECIPE_DIR%\scripts\deactivate.bat %DEACTIVATE_DIR%\gdal-deactivate.bat
 if errorlevel 1 exit 1
+
+copy %RECIPE_DIR%\scripts\activate.sh %ACTIVATE_DIR%\gdal-activate.sh
+if errorlevel 1 exit 1
+
+copy %RECIPE_DIR%\scripts\deactivate.sh %DEACTIVATE_DIR%\gdal-deactivate.sh
+if errorlevel 1 exit 1
