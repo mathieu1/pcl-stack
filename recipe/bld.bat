@@ -112,6 +112,7 @@ if errorlevel 1 exit 1
 copy %RECIPE_DIR%\scripts\deactivate.bat %DEACTIVATE_DIR%\gdal-deactivate.bat
 if errorlevel 1 exit 1
 
+:: Copy unix shell activation scripts, needed by Windows Bash users
 copy %RECIPE_DIR%\scripts\activate.sh %ACTIVATE_DIR%\gdal-activate.sh
 if errorlevel 1 exit 1
 
