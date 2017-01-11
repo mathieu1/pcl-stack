@@ -15,6 +15,7 @@ source:
     # https://lists.osgeo.org/pipermail/gdal-dev/2016-January/043443.html
     - disable_jpeg12.patch  # [win]
     - windowshdf5.patch  # [win]
+    - multiprocessor.patch  # [win]
     - install_scripts.patch
 
 build:
