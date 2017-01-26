@@ -20,8 +20,6 @@ source:
 
 build:
   number: 6
-  # Just a temporary skip to ensure CircleCI completion with the most common Python versions.
-  skip: True  # [py34 and linux]
   features:
     - vc9  # [win and py27]
     - vc10  # [win and py34]
@@ -125,6 +123,7 @@ test:
 about:
   home: http://www.gdal.org/
   license: MIT
+  license_file: LICENSE.TXT
   summary: 'The Geospatial Data Abstraction Library (GDAL).'
 
 extra:
