@@ -19,7 +19,7 @@ source:
     - install_scripts.patch
 
 build:
-  number: 0
+  number: 1
   features:
     - vc9  # [win and py27]
     - vc10  # [win and py34]
@@ -44,7 +44,7 @@ requirements:
     - libdap4 3.18.*  # [not win]
     - kealib
     - libtiff 4.0.*
-    - libpng >=1.6.23,<1.7
+    - libpng >=1.6.28,<1.7
     - zlib 1.2.*  # [not win]
     - jpeg 9*
     - postgresql
@@ -72,7 +72,7 @@ requirements:
     - libdap4 3.18.*  # [not win]
     - kealib
     - libtiff 4.0.*
-    - libpng >=1.6.23,<1.7
+    - libpng >=1.6.28,<1.7
     - zlib 1.2.*  # [not win]
     - jpeg 9*
     - libpq
