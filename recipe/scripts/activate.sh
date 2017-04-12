@@ -6,12 +6,21 @@
 if [[ -n "$GDAL_DATA" ]]; then
     export _CONDA_SET_GDAL_DATA=$GDAL_DATA
 fi
-export GDAL_DATA=$CONDA_PREFIX/share/gdal
 
 if [[ -n "$GDAL_DRIVER_PATH" ]]; then
     export _CONDA_SET_GDAL_DRIVER_PATH=$GDAL_DRIVER_PATH
 fi
-export GDAL_DRIVER_PATH=$CONDA_PREFIX/lib/gdalplugins
+
+# On Linux GDAL_DATA is in $CONDA_PREFIX/share/gdal, but
+# Windows keeps it in $CONDA_PREFIX/Library/share/gdal
+if [ -d $CONDA_PREFIX/share/gdal ]; then
+    export GDAL_DATA=$CONDA_PREFIX/share/gdal
+    export GDAL_DRIVER_PATH=$CONDA_PREFIX/lib/gdalplugins
+elif [ -d $CONDA_PREFIX/Library/share/gdal ]; then
+    export GDAL_DATA=$CONDA_PREFIX/Library/share/gdal
+    export GDAL_DRIVER_PATH=$CONDA_PREFIX/Library/lib/gdalplugins
+fi
+
 
 # Support plugins if the plugin directory exists
 # i.e if it has been manually created by the user
