@@ -78,12 +78,6 @@ export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
             --with-dods-root=$PREFIX \
             $OPTS
 
-# Regenerate python bindings.
-cd swig/python
-make veryclean
-make generate
-cd ../..
-
 # CircleCI offers two cores.
 make -j $CPU_COUNT >> $BUILD_OUTPUT 2>&1
 make install >> $BUILD_OUTPUT 2>&1
