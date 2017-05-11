@@ -1,4 +1,4 @@
-{% set version = "2.1.3" %}
+{% set version = "2.2.0" %}
 
 package:
   name: gdal
@@ -7,7 +7,7 @@ package:
 source:
   fn: gdal-{{ version }}.tar.gz
   url: http://download.osgeo.org/gdal/{{ version }}/gdal-{{ version }}.tar.gz
-  sha256: ae6a0a0dc6eb45a981a46db27e3dfe16c644fcf04732557e2cb315776974074a
+  sha256: d06546a6e34b77566512a2559e9117402320dd9487de9aa95cb8a377815dc360
   patches:
     - clang.patch  # [osx]
     - prepend-dll.patch  # [win]
@@ -19,7 +19,7 @@ source:
     - install_scripts.patch
 
 build:
-  number: 3
+  number: 0
   features:
     - vc9  # [win and py27]
     - vc10  # [win and py34]
@@ -28,10 +28,6 @@ build:
 requirements:
   build:
     - python
-    # Must be 3.0.8
-    # see https://github.com/conda-forge/gdal-feedstock/issues/131
-    - swig 3.0.8
-    - sed  # [osx]
     - setuptools
     - cmake  # [win]
     - numpy x.x
@@ -84,7 +80,6 @@ requirements:
     - expat
     - sqlite 3.13.*
     - libspatialite
-    - pcre
     - vc   9  # [win and py27]
     - vc  10  # [win and py34]
     - vc  14  # [win and py>=35]

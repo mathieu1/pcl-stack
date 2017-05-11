@@ -91,12 +91,9 @@ copy *.lib %LIBRARY_LIB%\ || exit 1
 if errorlevel 1 exit 1
 
 :: Python bindings
-cd swig
-nmake /f makefile.vc python %BLD_OPTS%
+cd swig\python
+%PYTHON% setup.py build
 if errorlevel 1 exit 1
-
-cd python
-
 %PYTHON% setup.py install
 if errorlevel 1 exit 1
 cd ..\..
