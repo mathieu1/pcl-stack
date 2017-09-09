@@ -40,8 +40,6 @@ if [ "$(uname)" == "Linux" ]; then
     -DBUILD_SHARED_LIBS:BOOL=ON \
     -DCMAKE_INSTALL_PREFIX=$PREFIX \
     -DBOOST_LIBRARYDIR=$PREFIX/lib \
-    -DCMAKE_C_COMPILER="${PREFIX}"/bin/gcc \
-    -DCMAKE_CXX_COMPILER="${PREFIX}"/bin/g++ \
     -DCMAKE_PREFIX_PATH="${PREFIX}" \
     -DCMAKE_EXE_LINKER_FLAGS=-L"${PREFIX}"/lib \
     -DCMAKE_MODULE_LINKER_FLAGS=-L"${PREFIX}"/lib \

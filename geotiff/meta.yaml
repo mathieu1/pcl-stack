@@ -12,13 +12,11 @@ requirements:
     build:
         - libtiff 4.0.6
         - proj4 4.9.3
-        - gcc                   [linux]
     run:
         - libtiff >=4.0.6
         - libtiff 4.0.*
         - proj4 >=4.9.3
         - proj4 4.9.*
-        - libgcc                [linux]
 
 about:
     home: trac.osgeo.org/geotiff

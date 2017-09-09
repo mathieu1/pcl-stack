@@ -16,6 +16,7 @@ else
     OPTS="--disable-rpath"
     COMP_CC=gcc
     COMP_CXX=g++
+    export CXXFLAGS="${CXXFLAGS}"
 fi
 
 export LDFLAGS="$LDFLAGS -L$PREFIX/lib"
@@ -29,7 +30,7 @@ cmake -G "Unix Makefiles" \
     -DCMAKE_INSTALL_PREFIX=$PREFIX \
     -DBUILD_PLUGIN_PYTHON=ON \
     -DBUILD_PLUGIN_PCL=ON \
-    -DBUILD_PLUGIN_PGPOINTCLOUD=ON \
+    -DBUILD_PLUGIN_PGPOINTCLOUD=OFF \
     -DBUILD_PLUGIN_SQLITE=ON \
     -DENABLE_CTEST=OFF \
     -DWITH_TESTS=ON \
