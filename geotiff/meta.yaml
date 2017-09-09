@@ -1,0 +1,30 @@
+{% set version = "1.4.2" %}
+
+package:
+    name: geotiff
+    version: {{ version }}
+
+source:
+    fn: libgeotiff-{{ version }}.tar.gz
+    url: http://download.osgeo.org/geotiff/libgeotiff/libgeotiff-{{ version }}.tar.gz
+
+requirements:
+    build:
+        - libtiff 4.0.6
+        - proj4 4.9.3
+        - gcc                   [linux]
+    run:
+        - libtiff >=4.0.6
+        - libtiff 4.0.*
+        - proj4 >=4.9.3
+        - proj4 4.9.*
+        - libgcc                [linux]
+
+about:
+    home: trac.osgeo.org/geotiff
+    license: MIT
+    license_family: MIT
+
+extra:
+  recipe-maintainers:
+    - mathieu1

@@ -1,0 +1,37 @@
+package:
+  name: pcl
+  version: 1.8.1
+
+source:
+  fn:  pcl-1.8.1.tar.gz
+  url: https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.1.tar.gz
+  patches:
+    - supervoxel.patch      [win]
+    - gp3_surface.patch     [win]
+    - mls_smoothing.patch   [win]
+#    - pcd.patch             [osx]
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - boost       
+    - cmake
+    - eigen3
+    - flann
+    - libpng                [unix]
+    - zlib                  [unix]
+    - pkg-config            [unix]
+    - gcc                   [linux]
+  run:
+    - boost       
+    - eigen3
+    - flann
+    - libpng                [unix]
+    - zlib                  [unix]
+    - libgcc                [linux]
+
+about:
+  home: http://pointclouds.org/
+  license: BSD
