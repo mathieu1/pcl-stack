@@ -12,7 +12,7 @@ source:
     - mls_smoothing.patch   [win]
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:

@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 3
+  number: 4
   skip: True  # [py36 and linux]
   features:
     - vc9  # [win and py27]
@@ -26,7 +26,7 @@ requirements:
     - cmake
     - cython
     - numpy x.x
-    - gdal 2.1.*
+    - gdal
     - geotiff
     - libxml2
     - libiconv
@@ -41,7 +41,7 @@ requirements:
     - python
     - cython
     - numpy x.x
-    - gdal 2.1.*
+    - gdal
     - geotiff
     - libxml2
     - libiconv

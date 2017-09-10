@@ -13,8 +13,8 @@ if [ $(uname) == Darwin ]; then
     export LDFLAGS="${LDFLAGS} -headerpad_max_install_names"
 else
     OPTS="--disable-rpath"
-    COMP_CC=gcc
-    COMP_CXX=g++
+    COMP_CC=gcc-4.8
+    COMP_CXX=g++-4.8
 fi
 
 export LDFLAGS="$LDFLAGS -L$PREFIX/lib"
@@ -32,6 +32,7 @@ if [ "$(uname)" == "Linux" ]; then
     -DBUILD_tools:BOOL=OFF \
     -DBUILD_examples:BOOL=OFF \
     -DBUILD_global_tests:BOOL=OFF \
+    -DWITH_OPENGL=FALSE \
     -DCMAKE_DISABLE_FIND_PACKAGE_OpenNI:BOOL=TRUE \
     -DCMAKE_DISABLE_FIND_PACKAGE_Qt4:BOOL=TRUE \
     -DCMAKE_DISABLE_FIND_PACKAGE_VTK:BOOL=TRUE \
@@ -54,6 +55,7 @@ if [ "$(uname)" == "Darwin" ]; then
     -DBUILD_tools:BOOL=OFF \
     -DBUILD_examples:BOOL=OFF \
     -DBUILD_global_tests:BOOL=OFF \
+    --DWITH_OPENGL=FALSE \
     -DCMAKE_DISABLE_FIND_PACKAGE_OpenNI:BOOL=TRUE \
     -DCMAKE_DISABLE_FIND_PACKAGE_Qt4:BOOL=TRUE \
     -DCMAKE_DISABLE_FIND_PACKAGE_VTK:BOOL=TRUE \
