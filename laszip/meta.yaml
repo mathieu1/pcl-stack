@@ -1,0 +1,33 @@
+{% set name = "laszip" %}
+{% set version = "2.2.0" %}
+{% set sha256 = "b" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://github.com/LASzip/LASzip/releases/download/v{{ version }}/laszip-src-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - cmake
+  run:
+
+test:
+  commands:
+    - laszippertest
+
+about:
+  home: http://www.laszip.org/
+  license: LGPL
+  summary: 'Free and lossless LiDAR compression'
+
+extra:
+  recipe-maintainers:
+    - mathieu1

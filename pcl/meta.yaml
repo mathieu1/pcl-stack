@@ -12,11 +12,11 @@ source:
     - mls_smoothing.patch   [win]
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
-    - boost       
+    - boost 1.65*
     - cmake
     - eigen
     - flann
@@ -25,7 +25,7 @@ requirements:
     - pkg-config            [unix]
 
   run:
-    - boost       
+    - boost 1.65*
     - eigen
     - flann
     - libpng                [unix]

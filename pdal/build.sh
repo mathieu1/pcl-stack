@@ -14,8 +14,8 @@ if [ $(uname) == Darwin ]; then
     export LDFLAGS="${LDFLAGS} -headerpad_max_install_names"
 else
     OPTS="--disable-rpath"
-    COMP_CC=gcc-4.8
-    COMP_CXX=g++-4.8
+    export CC=gcc-4.8
+    export CXX=g++-4.8
     export CXXFLAGS="$CXXFLAGS -std=c++11"
 fi
 
@@ -35,10 +35,11 @@ cmake -G "Unix Makefiles" \
     -DCMAKE_SHARED_LINKER_FLAGS=-L"${PREFIX}"/lib \
     -DBUILD_PLUGIN_PYTHON=ON \
     -DBUILD_PLUGIN_PCL=ON \
-    -DBUILD_PLUGIN_PGPOINTCLOUD=OFF \
+    -DBUILD_PLUGIN_PGPOINTCLOUD=ON \
     -DBUILD_PLUGIN_SQLITE=ON \
     -DENABLE_CTEST=OFF \
     -DWITH_TESTS=OFF \
+    -DWITH_LAZPERF=ON \
     -DWITH_APPS=ON
 
 # CircleCI offers two cores.

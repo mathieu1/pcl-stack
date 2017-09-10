@@ -4,21 +4,21 @@ set -e # Abort on error.
 ## START BUILD
 if [ $(uname) == Darwin ]; then
     #export LDFLAGS="-headerpad_max_install_names"
-    OPTS="--enable-rpath"
-    export CXXFLAGS="-stdlib=libc++ $CXXFLAGS"
-    COMP_CC=clang
-    COMP_CXX=clang++
+    # OPTS="--enable-rpath"
+    # export CXXFLAGS="-stdlib=libc++ $CXXFLAGS"
+    export CC=clang
+    export CXX=clang++
     export MACOSX_DEPLOYMENT_TARGET="10.9"
-    export CXXFLAGS="${CXXFLAGS} -stdlib=libc++"
-    export LDFLAGS="${LDFLAGS} -headerpad_max_install_names"
+    # export CXXFLAGS="${CXXFLAGS} -stdlib=libc++"
+    # export LDFLAGS="${LDFLAGS} -headerpad_max_install_names"
 else
-    OPTS="--disable-rpath"
-    COMP_CC=gcc-4.8
-    COMP_CXX=g++-4.8
+    #export OPTS="--disable-rpath"
+    export CC=gcc-4.8
+    export CXX=g++-4.8
 fi
 
-export LDFLAGS="$LDFLAGS -L$PREFIX/lib"
-export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
+# export LDFLAGS="$LDFLAGS -L$PREFIX/lib"
+# export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
 
 mkdir build
 cd build
@@ -67,7 +67,6 @@ if [ "$(uname)" == "Darwin" ]; then
     -DCMAKE_PREFIX_PATH="${PREFIX}" \
     -DCMAKE_OSX_DEPLOYMENT_TARGET=''
 fi
-
 
 make -j $CPU_COUNT
 make install
