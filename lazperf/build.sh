@@ -2,9 +2,16 @@
 
 set -e # Abort on error.
 
+if [ $(uname) == Darwin ]; then
+    export CC=clang
+    export CXX=clang++
+    export MACOSX_DEPLOYMENT_TARGET="10.7"
+else
+    export CC=gcc-4.8
+    export CXX=g++-4.8
+fi
+
 cmake -G "Unix Makefiles" \
-    -DCMAKE_C_COMPILER=gcc-4.8 \
-    -DCMAKE_CXX_COMPILER=g++-4.8 \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
     -DCMAKE_INSTALL_RPATH="${PREFIX}"/lib \
@@ -15,9 +22,6 @@ cmake -G "Unix Makefiles" \
 # CircleCI offers two cores.
 make -j $CPU_COUNT
 make install
-
-export CC=gcc-4.8
-export CXX=g++-4.8
 
 cd python
 python setup.py install
