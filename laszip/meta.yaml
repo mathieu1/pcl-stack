@@ -1,6 +1,6 @@
 {% set name = "laszip" %}
-{% set version = "2.2.0" %}
-{% set sha256 = "d0f6fa9c486caa6905927ebf32240aa7ef34181bbcc039cf8e51aa923557dc79" %}
+{% set version = "2.0.2" %}
+{% set sha256 = "d83cab7ece00f14227342afc4bf1dd841c67ea841f14a62261be9b101bf40f92" %}
 
 package:
   name: {{ name|lower }}
@@ -8,11 +8,11 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://github.com/LASzip/LASzip/releases/download/v{{ version }}/laszip-src-{{ version }}.tar.gz
+  url: https://github.com/LASzip/LASzip/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -23,7 +23,6 @@ test:
   commands:
     - laszippertest
     - conda inspect linkages {{ name }}
-
 
 about:
   home: http://www.laszip.org/

@@ -11,6 +11,6 @@ else
     export CXX=g++-4.8
 fi
 
-./configure --prefix=$PREFIX
+cmake . -DCMAKE_INSTALL_PREFIX=$PREFIX
 make -j $CPU_COUNT
 make install

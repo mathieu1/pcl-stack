@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 6
+  number: 7
   skip: True  # [py36 and linux]
   features:
     - vc9  # [win and py27]
@@ -28,9 +28,9 @@ requirements:
     - numpy x.x
     - gdal
     - geotiff
-    - laszip
+    - laszip 2.0.2
     - lazperf [linux]
-    - libpq
+    - postgresql
     - libxml2
     - libiconv
     - packaging
@@ -45,9 +45,9 @@ requirements:
     - numpy x.x
     - gdal
     - geotiff
-    - laszip
+    - laszip 2.0.2
     - lazperf [linux]
-    - libpq
+    - postgresql
     - libxml2
     - libiconv
     - pcl
