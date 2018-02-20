@@ -1,23 +1,26 @@
+{% set name = "pcl" %}
+{% set version = "1.8.1" %}
+{% set sha256 = "5a102a2fbe2ba77c775bf92c4a5d2e3d8170be53a68c3a76cfc72434ff7b9783" %}
+
 package:
-  name: pcl
-  version: 1.8.1
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  fn:  pcl-1.8.1.tar.gz
-  url: https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.1.tar.gz
-  sha: 1234576892193
+  fn:  {{ name }}-{{ version }}.tar.gz
+  url: https://github.com/PointCloudLibrary/pcl/archive/pcl-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
   patches:
     - supervoxel.patch      [win]
     - gp3_surface.patch     [win]
     - mls_smoothing.patch   [win]
 
 build:
-  number: 2
+  number: 3
 
 requirements:
   build:
-    - boost 1.65*
-    - cmake
+    - boost-cpp {{ boost }}
     - eigen
     - flann
     - libpng                [unix]
@@ -25,12 +28,21 @@ requirements:
     - pkg-config            [unix]
 
   run:
-    - boost 1.65*
+    - boost-cpp {{ boost }}
     - eigen
     - flann
     - libpng                [unix]
     - zlib                  [unix]
 
+test:
+  commands:
+    - conda inspect linkages {{ name|lower }}
+
 about:
   home: http://pointclouds.org/
   license: BSD
+  description: 'A standalone, large scale, open project for 2D/3D image and point cloud processing'
+
+extra:
+  recipe-maintainers:
+    - mathieu1

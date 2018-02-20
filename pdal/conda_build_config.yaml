@@ -1,0 +1,13 @@
+python:
+    - 3.5
+numpy:
+    - 1.12
+boost:
+    - 1.66
+gdal:
+    - 2.2.3
+pin_run_as_build:
+  python: x.x
+  boost-cpp: x.x
+  gdal: x.x
+  numpy: x.x

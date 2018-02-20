@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py36 and linux]
   features:
     - vc9  # [win and py27]
@@ -21,19 +21,21 @@ build:
 
 requirements:
   build:
-    - python
+    - python {{ python }}
     - setuptools
+    - boost-cpp {{ boost }}
     - cmake
     - cython
-    - numpy x.x
-    - gdal 2.2.2
+    - numpy {{ numpy }}
+    - gdal {{ gdal }}
     - geotiff
-    - laszip
+    - laszip >=3.1.1
     - lazperf [linux]
     - postgresql
     - libxml2
     - libiconv
     - packaging
+    - pkg-config
     - pcl
     - vc   9  # [win and py27]
     - vc  10  # [win and py34]
@@ -41,11 +43,12 @@ requirements:
 
   run:
     - python
+    - boost-cpp
     - cython
-    - numpy x.x
-    - gdal 2.2.2
+    - numpy
+    - gdal
     - geotiff
-    - laszip
+    - laszip >=3.1.1
     - lazperf [linux]
     - postgresql
     - libxml2
@@ -62,7 +65,7 @@ test:
     - pdal --version
     - pdal --drivers
     - pdal --options filter.programmable
-#    - conda inspect linkages {{ name|lower }}
+    - conda inspect linkages {{ name|lower }}
 
 about:
   home: https://www.pdal.io/

@@ -1,6 +1,6 @@
 {% set name = "laszip" %}
-{% set version = "2.0.2" %}
-{% set sha256 = "d83cab7ece00f14227342afc4bf1dd841c67ea841f14a62261be9b101bf40f92" %}
+{% set version = "3.1.1" %}
+{% set sha256 = "915bdfb4985bf22f67acadba5462148fafa8d505424ebda3c559fd0b71c4df1e" %}
 
 package:
   name: {{ name|lower }}
@@ -16,12 +16,10 @@ build:
 
 requirements:
   build:
-    - cmake
   run:
 
 test:
   commands:
-    - laszippertest
     - conda inspect linkages {{ name }}
 
 about:

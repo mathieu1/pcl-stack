@@ -1,0 +1,7 @@
+boost:
+    - 1.66
+flann:
+    - 1.9
+pin_run_as_build:
+  boost-cpp: x.x
+  flann: x.x
