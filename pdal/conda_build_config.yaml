@@ -9,5 +9,5 @@ gdal:
 pin_run_as_build:
   python: x.x
   boost-cpp: x.x
-  gdal: x.x
+  gdal: x.x.x
   numpy: x.x
