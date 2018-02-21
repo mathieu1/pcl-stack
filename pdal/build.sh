@@ -10,6 +10,7 @@ if [ $(uname) == Darwin ]; then
     COMP_CC=clang
     COMP_CXX=clang++
     export MACOSX_DEPLOYMENT_TARGET="10.9"
+    export WITH_SQLITE="NO"
 #    export CXXFLAGS="${CXXFLAGS} -stdlib=libc++"
 #    export LDFLAGS="${LDFLAGS} -headerpad_max_install_names"
     #export DYLD_FALLBACK_LIBRARY_PATH=$PREFIX/lib
@@ -19,6 +20,7 @@ else
     export CXX=g++-4.8
     export CXXFLAGS="$CXXFLAGS -std=c++11"
     export LD_LIBRARY_PATH=$PREFIX/lib
+    export WITH_SQLITE="YES"
 fi
 
 #export LDFLAGS="$LDFLAGS -L$PREFIX/lib"
@@ -37,7 +39,7 @@ cmake -G "Unix Makefiles" \
     -DBUILD_PLUGIN_PYTHON=ON \
     -DBUILD_PLUGIN_PCL=ON \
     -DBUILD_PLUGIN_PGPOINTCLOUD=ON \
-    -DBUILD_PLUGIN_SQLITE=ON \
+    -DBUILD_PLUGIN_SQLITE=$WITH_SQLITE \
     -DENABLE_CTEST=OFF \
     -DWITH_TESTS=OFF \
     -DWITH_LAZPERF=ON \

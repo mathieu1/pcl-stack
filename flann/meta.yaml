@@ -20,9 +20,9 @@ requirements:
 test:
     commands:
         - test -f $PREFIX/lib/libflann_s.a
-        - test -f $PREFIX/lib/libflann.so
+        - test -f $PREFIX/lib/libflann.so       # [linux]
         - test -f $PREFIX/lib/libflann_cpp_s.a
-        - test -f $PREFIX/lib/libflann_cpp.so
+        - test -f $PREFIX/lib/libflann_cpp.so   # [linux]
 about:
     home: http://www.cs.ubc.ca/research/flann/
     license: BSD 3-Clause

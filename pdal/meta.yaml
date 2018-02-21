@@ -44,6 +44,7 @@ requirements:
     - laszip >=3.1.1
     - lazperf [linux]
     - postgresql
+    - libpq
     - libxml2
     - libiconv
     - pcl
