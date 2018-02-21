@@ -22,11 +22,6 @@ else
 fi
 
 #export LDFLAGS="$LDFLAGS -L$PREFIX/lib"
-#export CPPFLAGS="$CPPFLAGS -I$PREFIX/laszip/include"
-
-
-# `--without-pam` was removed.
-# See https://github.com/conda-forge/gdal-feedstock/pull/47 for the discussion.
 
 cmake -G "Unix Makefiles" \
     -DCMAKE_BUILD_TYPE=Release \
@@ -36,15 +31,18 @@ cmake -G "Unix Makefiles" \
     -DCMAKE_EXE_LINKER_FLAGS=-L$PREFIX/lib \
     -DCMAKE_MODULE_LINKER_FLAGS=-L$PREFIX/lib \
     -DCMAKE_SHARED_LINKER_FLAGS=-L$PREFIX/lib \
+    -DBUILD_PLUGIN_CPD=OFF \
+    -DBUILD_PLUGIN_GREYHOUND=ON \
+    -DBUILD_PLUGIN_ICEBRIDGE=ON \
     -DBUILD_PLUGIN_PYTHON=ON \
     -DBUILD_PLUGIN_PCL=ON \
     -DBUILD_PLUGIN_PGPOINTCLOUD=ON \
-    -DBUILD_PLUGIN_SQLITE=OFF \
+    -DBUILD_PLUGIN_SQLITE=ON \
     -DENABLE_CTEST=OFF \
     -DWITH_TESTS=OFF \
-    -DWITH_LAZPERF=ON
+    -DWITH_LAZPERF=ON \
+    -DWITH_COMPLETION=ON \
 
-# CircleCI offers two cores.
 make -j $CPU_COUNT
 make install
 

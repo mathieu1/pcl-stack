@@ -12,12 +12,8 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
-  skip: True  # [py36 and linux]
-  features:
-    - vc9  # [win and py27]
-    - vc10  # [win and py34]
-    - vc14  # [win and py>=35]
+  number: 2
+  skip: true   # [win]
 
 requirements:
   build:
@@ -26,7 +22,7 @@ requirements:
     - boost-cpp {{ boost }}
     - cmake
     - cython
-    - numpy {{ numpy }}
+    - numpy
     - gdal {{ gdal }}
     - geotiff
     - laszip >=3.1.1
@@ -37,12 +33,9 @@ requirements:
     - packaging
     - pkg-config
     - pcl
-    - vc   9  # [win and py27]
-    - vc  10  # [win and py34]
-    - vc  14  # [win and py>=35]
 
   run:
-    - python
+    - python {{ python }}
     - boost-cpp
     - cython
     - numpy
@@ -54,9 +47,6 @@ requirements:
     - libxml2
     - libiconv
     - pcl
-    - vc   9  # [win and py27]
-    - vc  10  # [win and py34]
-    - vc  14  # [win and py>=35]
 
 test:
   imports:
@@ -64,7 +54,6 @@ test:
   commands:
     - pdal --version
     - pdal --drivers
-    - pdal --options filter.programmable
     - conda inspect linkages {{ name|lower }}
 
 about:
