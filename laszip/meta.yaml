@@ -1,6 +1,6 @@
 {% set name = "laszip" %}
-{% set version = "3.1.1" %}
-{% set sha256 = "915bdfb4985bf22f67acadba5462148fafa8d505424ebda3c559fd0b71c4df1e" %}
+{% set version = "3.2.2" %}
+{% set sha256 = "0b2e5df3b4f464da9331dfc7bd455044a656be0f2251e50be5f087417ad41876" %}
 
 package:
   name: {{ name|lower }}
