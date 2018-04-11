@@ -1,0 +1,13 @@
+python:
+    - 2.7
+    - 3.5
+    - 3.6
+boost:
+    - 1.66
+libgdal:
+    - 2.2.3
+pin_run_as_build:
+  python: x.x
+  boost-cpp: x.x
+  libgdal: x.x.x
+

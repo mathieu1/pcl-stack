@@ -1,0 +1,61 @@
+{% set name = "libpdal" %}
+{% set version = "1.7.1" %}
+{% set sha256 = "a560d3962b5ffdf58876155b33f816f24dbaf9a313ae308d9bf63adb8edac951" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-1.7.1.tar.gz
+  url: https://github.com/PDAL/PDAL/archive/1.7.1.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+  skip: true   # [win]
+
+requirements:
+  build:
+    - boost-cpp {{ boost }}
+    - cmake
+    - libgdal {{ libgdal }}
+    - geotiff
+    - laszip >=3.1.1
+    - lazperf [linux]
+    - postgresql
+    - libpq
+    - libxml2
+    - libiconv
+    - pkg-config
+    - pcl
+    - python {{ python }}
+
+  run:
+    - boost-cpp
+    - libgdal
+    - geotiff
+    - laszip >=3.1.1
+    - lazperf [linux]
+    - postgresql
+    - libpq
+    - libxml2
+    - libiconv
+    - pcl
+    - python
+    - numpy
+
+test:
+  commands:
+    - pdal --version
+    - pdal --drivers
+    - conda inspect linkages {{ name|lower }}
+
+about:
+  home: https://www.pdal.io/
+  license: BSD
+  summary: 'Point cloud data processing'
+
+extra:
+  recipe-maintainers:
+    - mathieu1

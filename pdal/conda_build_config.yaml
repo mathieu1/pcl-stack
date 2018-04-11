@@ -1,12 +1,6 @@
 python:
+    - 2.7
     - 3.5
     - 3.6
-boost:
-    - 1.66
-gdal:
-    - 2.2.3
 pin_run_as_build:
   python: x.x
-  boost-cpp: x.x
-  gdal: x.x.x
-#  numpy: x.x

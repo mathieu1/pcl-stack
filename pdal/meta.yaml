@@ -1,61 +1,38 @@
-{% set name = "PDAL" %}
-{% set version = "1.6.0" %}
-{% set sha256 = "66baf8510225b34ee24021731758251cd70657dd578c210ae86c78d158f283eb" %}
+{% set name = "pdal" %}
+{% set version = "2.0.0" %}
+{% set sha256 = "60d41da79441d0aa9c44ec6ebb7497ffc0090d761259d42d4eeb05c7146bb432" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-1.6.tar.gz
-  url: https://github.com/PDAL/PDAL/archive/1.6.tar.gz
+  fn: {{ name }}-2.0.0.tar.gz
+  url: https://github.com/PDAL/python/archive/2.0.0.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 0
   skip: true   # [win]
 
 requirements:
   build:
     - python {{ python }}
     - setuptools
-    - boost-cpp {{ boost }}
-    - cmake
     - cython
     - numpy
-    - gdal {{ gdal }}
-    - geotiff
-    - laszip >=3.1.1
-    - lazperf [linux]
-    - postgresql
-    - libxml2
-    - libiconv
+    - libpdal >=1.7.1
     - packaging
-    - pkg-config
-    - pcl
 
   run:
     - python {{ python }}
-    - boost-cpp
     - cython
     - numpy
-    - gdal
-    - geotiff
-    - laszip >=3.1.1
-    - lazperf [linux]
-    - postgresql
-    - libpq
-    - libxml2
-    - libiconv
-    - pcl
+    - libpdal >=1.7.1
 
 test:
   imports:
     - pdal
-  commands:
-    - pdal --version
-    - pdal --drivers
-    - conda inspect linkages {{ name|lower }}
 
 about:
   home: https://www.pdal.io/
